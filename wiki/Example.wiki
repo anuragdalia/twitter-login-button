@@ -28,6 +28,13 @@ Once the Facebook SDK is referenced, the app manifest needs to be modified to al
 }}}
 
 == Implementation ==
+=== Register your app ===
+
+In order to use you must create an app in the [https://dev.twitter.com/ Twitter Dev Center].
+You need to choose *Browser* as *Application Type*.
+You can put anything but a valid URL in the *Callback URL* because it's programmatically redefined. 
+Once your app is registered save your Consumer Key and your Consumer Secret.
+
 === Layout ===
 
 First, you have to add the TLB into your layout as following:
@@ -37,7 +44,10 @@ android:id="@+id/bLoginTwitter" android:layout_width="wrap_content"
 android:layout_height="wrap_content"/>
 }}}
 
-In the associate Java class you have to initialize the button in the onCreate method.
+== Activity ==
+
+In the class associated to your layout you have to initialize the TLB as following.
+
 {{{
 package com.awl.tumlabs.android;
 
@@ -91,3 +101,5 @@ public class TwitterExample extends Activity{
 	
 }
 }}}
+
+You can handle the login and logout with TwitterAuthListener.
