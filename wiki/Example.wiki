@@ -21,8 +21,73 @@ With the TLB project created, we can create the app. Create a new Android Projec
 
 Once your app project is created, you will need to add a reference to the TLB project. You do this by opening the properties window for our app (File | Properties), selecting the Android item from the list, pressing the Add... button in the Library area and selecting the TLB project created above.
 
-Once the Facebook SDK is referenced, the app manifest needs to be modified to allow the app to make network calls to Facebook. This is accomplished by adding the following to the AndroidManifest.xml file in the app project:
+Once the Facebook SDK is referenced, the app manifest needs to be modified to allow the app to make network calls to Facebook. This is accomplished by adding the following to the `AndroidManifest.xml` file in the app project:
 {{{
 <uses-permission android:name="android.permission.INTERNET">
 </uses-permission>
+}}}
+
+== Implementation ==
+=== Layout ===
+
+First, you have to add the TLB into your layout as following:
+{{{
+<com.awl.tumlabs.twitter.android.TwitterLoginButton
+android:id="@+id/bLoginTwitter" android:layout_width="wrap_content"
+android:layout_height="wrap_content"/>
+}}}
+
+In the associate Java class you have to initialize the button in the onCreate method.
+{{{
+package com.awl.tumlabs.android;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+import com.atos.awl.tumlabs.android.R;
+import com.awl.tumlabs.twitter.android.TwitterAuth;
+import com.awl.tumlabs.twitter.android.TwitterAuth.AuthListener;
+import com.awl.tumlabs.twitter.android.TwitterLoginButton;
+
+public class TwitterExample extends Activity{
+	
+	private static final String CONSUMER_KEY = "xxx";
+	private static final String CONSUMER_SECRET = "xxx";
+	private static final String CALLBACK_URL = "myApp:///twitter";
+	private static TwitterAuth mTwitterAuth = new TwitterAuth(CONSUMER_KEY, CONSUMER_SECRET, CALLBACK_URL);
+	
+	private TwitterLoginButton twitterLoginButton;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.main);
+
+		twitterLoginButton = (TwitterLoginButton) findViewById(R.id.bLoginTwitter);
+		twitterLoginButton.init(this, mTwitterAuth, new TwitterAuthListener());
+	}
+	
+	private class TwitterAuthListener implements AuthListener {
+
+		@Override
+		public void onAuthSucceed() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onLogoutSucceed() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onError(String error) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+	
+}
 }}}
