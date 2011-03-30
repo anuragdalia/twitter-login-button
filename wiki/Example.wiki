@@ -102,4 +102,4 @@ public class TwitterExample extends Activity{
 }
 }}}
 
-You can handle the login and logout with TwitterAuthListener.
+You can handle the login and logout with `TwitterAuthListener`.
