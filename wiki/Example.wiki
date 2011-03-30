@@ -1,0 +1,15 @@
+#summary Example of utilisation
+#labels Phase-Implementation
+
+= Introduction =
+
+In this example I will show you how to use the twitter-login-button (TLB)
+The target build of the TBL is Android 1.5 so it can be used in every Android project.
+
+= Prerequisite =
+== Software ==
+
+Before you begin development with TBL you need to install Android SDK and developers tool.
+Install:
+* [http://developer.android.com/sdk/index.html Android]
+* [http://developer.android.com/sdk/eclipse-adt.html The Eclipse Plugin]
