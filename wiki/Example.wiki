@@ -10,6 +10,19 @@ The target build of the TBL is Android 1.5 so it can be used in every Android pr
 == Software ==
 
 Before you begin development with TBL you need to install Android SDK and developers tool.
-Install:
-* [http://developer.android.com/sdk/index.html Android]
-* [http://developer.android.com/sdk/eclipse-adt.html The Eclipse Plugin]
+ * [http://developer.android.com/sdk/index.html Android]
+ * [http://developer.android.com/sdk/eclipse-adt.html The Eclipse Plugin]
+
+== Installation ==
+
+Once you have everything installed, open Eclipse and create a new Android Project (File | New | Project ...). We will use this project for the TLB source and then reference it from our app. As such, we need to get the content by selecting Create project from existing source and specifying the TLB directory.
+
+With the TLB project created, we can create the app. Create a new Android Project (the TLB project will stay open in the Eclipse Workspace) from File | New | Project..., using the defaults and populating the require fields.
+
+Once your app project is created, you will need to add a reference to the TLB project. You do this by opening the properties window for our app (File | Properties), selecting the Android item from the list, pressing the Add... button in the Library area and selecting the TLB project created above.
+
+Once the Facebook SDK is referenced, the app manifest needs to be modified to allow the app to make network calls to Facebook. This is accomplished by adding the following to the AndroidManifest.xml file in the app project:
+{{{
+<uses-permission android:name="android.permission.INTERNET">
+</uses-permission>
+}}}
