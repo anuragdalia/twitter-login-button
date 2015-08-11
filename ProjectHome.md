@@ -1,0 +1,1 @@
+The project has move to [Github](https://github.com/xballoy/twitter-login-button)
